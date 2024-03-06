@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Consulta</title>
+</head>
+<body>
+    <h2>Consulta de Dados</h2>
+    <table class="table table-striped table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Sistema</th>
+                <th>Subsistema</th>
+                <th>Equipamento</th>
+                <th>Fabricante</th>
+                <th>Modelo</th>
+                <th>Meio Físico</th>
+                <th>Protocolo</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in df_consulta.iterrows() %}
+                <tr>
+                    <td>{{ row[1]['Sistema'] }}</td>
+                    <td>{{ row[1]['Subsistema'] }}</td>
+                    <td>{{ row[1]['Equipamento'] }}</td>
+                    <td>{{ row[1]['Fabricante'] }}</td>
+                    <td>{{ row[1]['Modelo'] }}</td>
+                    <td>{{ row[1]['Meio Físico'] }}</td>
+                    <td>{{ row[1]['Protocolo'] }}</td>
+                    <td>{{ row[1]['Descrição'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
